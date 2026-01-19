@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ScreenCapr API Documentation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Fira+Code:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "sidebar-dark": "#0b0f1a",
+                        "code-dark": "#0a0d16",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["Fira Code", "monospace"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .code-syntax-keyword {
+            color: #c678dd;
+        }
+
+        .code-syntax-string {
+            color: #98c379;
+        }
+
+        .code-syntax-function {
+            color: #61afef;
+        }
+
+        .code-syntax-property {
+            color: #d19a66;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #314368;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <div class="relative flex min-h-screen flex-col">
+        <!-- TopNavBar -->
+        <header
+            class="sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-solid border-slate-200 dark:border-[#222f49] bg-white/80 dark:bg-background-dark/80 px-6 backdrop-blur-md">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+                        <span class="material-symbols-outlined !text-[20px]">photo_camera</span>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-tight">ScreenCapr</h2>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div
+                        class="flex items-center gap-2 rounded-lg bg-slate-100 dark:bg-[#222f49] px-3 py-1.5 w-80 group border border-transparent focus-within:border-primary/50 transition-all">
+                        <span
+                            class="material-symbols-outlined text-slate-400 dark:text-[#90a4cb] !text-[20px]">search</span>
+                        <input
+                            class="w-full bg-transparent text-sm outline-none placeholder:text-slate-400 dark:placeholder:text-[#90a4cb] border-none focus:ring-0"
+                            placeholder="Search documentation..." />
+                        <kbd
+                            class="hidden md:inline-flex items-center gap-1 rounded border border-slate-300 dark:border-slate-600 px-1.5 font-mono text-[10px] font-medium text-slate-500">
+                            <span class="text-xs">⌘</span>K
+                        </kbd>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-[#90a4cb]">
+                    <a class="hover:text-primary transition-colors" href="#">Guides</a>
+                    <a class="text-primary" href="#">API Reference</a>
+                    <a class="hover:text-primary transition-colors" href="#">Changelog</a>
+                    <a class="hover:text-primary transition-colors" href="#">Support</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                        Dashboard
+                    </button>
+                    <button
+                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 dark:bg-[#222f49] text-slate-600 dark:text-white hover:bg-slate-200 dark:hover:bg-[#314368] transition-all">
+                        <span class="material-symbols-outlined !text-[20px]">hub</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="flex flex-1">
+            <!-- SideNavBar (Left Column) -->
+            <aside
+                class="sticky top-16 hidden h-[calc(100vh-64px)] w-64 flex-col border-r border-slate-200 dark:border-[#222f49] bg-white dark:bg-sidebar-dark lg:flex overflow-y-auto">
+                <div class="flex flex-col gap-6 p-6">
+                    <div class="flex flex-col gap-1">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-[#5e74a1]">Getting
+                            Started</span>
+                        <div class="flex flex-col gap-0.5 mt-2">
+                            <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 dark:text-[#90a4cb] hover:bg-slate-50 dark:hover:bg-[#222f49] transition-all"
+                                href="#">
+                                <span class="material-symbols-outlined !text-[18px]">home</span>
+                                Introduction
+                            </a>
+                            <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 dark:text-[#90a4cb] hover:bg-slate-50 dark:hover:bg-[#222f49]"
+                                href="#">
+                                <span class="material-symbols-outlined !text-[18px]">lock</span>
+                                Authentication
+                            </a>
+                            <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 dark:text-[#90a4cb] hover:bg-slate-50 dark:hover:bg-[#222f49]"
+                                href="#">
+                                <span class="material-symbols-outlined !text-[18px]">bolt</span>
+                                Quickstart
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-[#5e74a1]">Core
+                            Resources</span>
+                        <div class="flex flex-col gap-0.5 mt-2">
+                            <div
+                                class="flex items-center justify-between group rounded-lg bg-primary/10 dark:bg-primary/10 px-3 py-2 text-sm font-bold text-primary">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined !text-[18px]">api</span>
+                                    Screenshots
+                                </div>
+                                <span class="material-symbols-outlined !text-[16px]">expand_more</span>
+                            </div>
+                            <div
+                                class="ml-4 border-l border-slate-200 dark:border-[#222f49] pl-4 flex flex-col gap-0.5 mt-1">
+                                <a class="px-2 py-1.5 text-sm font-bold text-primary" href="#">Capture URL</a>
+                                <a class="px-2 py-1.5 text-sm font-medium text-slate-500 hover:text-primary transition-colors"
+                                    href="#">Retrieve Screenshot</a>
+                                <a class="px-2 py-1.5 text-sm font-medium text-slate-500 hover:text-primary transition-colors"
+                                    href="#">List Captures</a>
+                                <a class="px-2 py-1.5 text-sm font-medium text-slate-500 hover:text-primary transition-colors"
+                                    href="#">Delete Capture</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-[#5e74a1]">Advanced</span>
+                        <div class="flex flex-col gap-0.5 mt-2">
+                            <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 dark:text-[#90a4cb] hover:bg-slate-50 dark:hover:bg-[#222f49]"
+                                href="#">
+                                <span class="material-symbols-outlined !text-[18px]">sync</span>
+                                Webhooks
+                            </a>
+                            <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 dark:text-[#90a4cb] hover:bg-slate-50 dark:hover:bg-[#222f49]"
+                                href="#">
+                                <span class="material-symbols-outlined !text-[18px]">report_problem</span>
+                                Error Codes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Main Content (Center Column) -->
+            <main class="flex-1 overflow-y-auto scroll-smooth">
+                <div class="mx-auto max-w-4xl px-8 py-10 lg:px-12">
+                    <!-- Breadcrumbs -->
+                    <div class="flex items-center gap-2 mb-6 text-xs font-medium text-slate-400 dark:text-[#90a4cb]">
+                        <a class="hover:text-primary" href="#">API Reference</a>
+                        <span class="material-symbols-outlined !text-[14px]">chevron_right</span>
+                        <a class="hover:text-primary" href="#">Screenshots</a>
+                        <span class="material-symbols-outlined !text-[14px]">chevron_right</span>
+                        <span class="text-slate-900 dark:text-white">Capture URL</span>
+                    </div>
+                    <!-- Page Heading -->
+                    <div class="flex flex-col gap-4 mb-10">
+                        <div class="flex items-center gap-4">
+                            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Capture
+                                Screenshot</h1>
+                            <span
+                                class="rounded-full bg-blue-500/10 px-3 py-1 text-xs font-bold text-primary ring-1 ring-inset ring-primary/20">POST</span>
+                        </div>
+                        <p class="text-lg leading-relaxed text-slate-600 dark:text-[#90a4cb]">
+                            The main endpoint for generating high-quality screenshots. It supports real-time rendering,
+                            full-page capture, and retina resolution across all modern browsers.
+                        </p>
+                        <div class="mt-2 flex items-center gap-2">
+                            <code
+                                class="rounded bg-slate-100 dark:bg-[#222f49] px-3 py-1.5 text-sm font-mono text-slate-800 dark:text-blue-400 border border-slate-200 dark:border-transparent">https://api.screencapr.com/v1/capture</code>
+                            <button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined !text-[18px]">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Tabs -->
+                    <div class="mb-8 border-b border-slate-200 dark:border-[#314368]">
+                        <div class="flex gap-8">
+                            <button
+                                class="border-b-2 border-primary pb-4 text-sm font-bold text-primary">Parameters</button>
+                            <button
+                                class="border-b-2 border-transparent pb-4 text-sm font-medium text-slate-500 dark:text-[#90a4cb] hover:text-primary">Responses</button>
+                            <button
+                                class="border-b-2 border-transparent pb-4 text-sm font-medium text-slate-500 dark:text-[#90a4cb] hover:text-primary">Best
+                                Practices</button>
+                        </div>
+                    </div>
+                    <!-- Content Sections -->
+                    <div class="space-y-12">
+                        <section>
+                            <h3
+                                class="mb-4 text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-[#5e74a1]">
+                                Query Parameters</h3>
+                            <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-[#222f49]">
+                                <table class="w-full text-left text-sm">
+                                    <thead
+                                        class="bg-slate-50 dark:bg-[#161d2b] border-b border-slate-200 dark:border-[#222f49]">
+                                        <tr>
+                                            <th class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Parameter
+                                            </th>
+                                            <th class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Type</th>
+                                            <th class="px-4 py-3 font-semibold text-slate-900 dark:text-white">
+                                                Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 dark:divide-[#222f49]">
+                                        <tr class="group">
+                                            <td class="px-4 py-4 font-mono font-bold text-primary">url</td>
+                                            <td class="px-4 py-4 font-mono text-xs text-slate-500">string</td>
+                                            <td class="px-4 py-4 leading-relaxed text-slate-600 dark:text-[#90a4cb]">
+                                                <span
+                                                    class="mr-2 inline-flex items-center rounded-full bg-red-100 dark:bg-red-900/30 px-2 py-0.5 text-[10px] font-bold text-red-600 dark:text-red-400">REQUIRED</span>
+                                                The fully qualified URL of the page you want to capture.
+                                            </td>
+                                        </tr>
+                                        <tr class="group">
+                                            <td class="px-4 py-4 font-mono font-bold text-primary">viewport</td>
+                                            <td class="px-4 py-4 font-mono text-xs text-slate-500">string</td>
+                                            <td class="px-4 py-4 leading-relaxed text-slate-600 dark:text-[#90a4cb]">
+                                                The width and height of the browser window. Format: <code
+                                                    class="text-xs text-blue-400">1920x1080</code>.
+                                            </td>
+                                        </tr>
+                                        <tr class="group">
+                                            <td class="px-4 py-4 font-mono font-bold text-primary">full_page</td>
+                                            <td class="px-4 py-4 font-mono text-xs text-slate-500">boolean</td>
+                                            <td class="px-4 py-4 leading-relaxed text-slate-600 dark:text-[#90a4cb]">
+                                                Scroll the entire page and capture the full height. Defaults to <code
+                                                    class="text-xs text-blue-400">false</code>.
+                                            </td>
+                                        </tr>
+                                        <tr class="group">
+                                            <td class="px-4 py-4 font-mono font-bold text-primary">format</td>
+                                            <td class="px-4 py-4 font-mono text-xs text-slate-500">enum</td>
+                                            <td class="px-4 py-4 leading-relaxed text-slate-600 dark:text-[#90a4cb]">
+                                                Output format. One of: <code class="text-xs text-blue-400">png</code>,
+                                                <code class="text-xs text-blue-400">jpeg</code>, <code
+                                                    class="text-xs text-blue-400">pdf</code>.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section>
+                            <h3
+                                class="mb-4 text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-[#5e74a1]">
+                                Response Example</h3>
+                            <p class="mb-4 text-slate-600 dark:text-[#90a4cb]">A successful request returns a JSON
+                                object with the screenshot URL and metadata.</p>
+                            <div
+                                class="rounded-xl border border-slate-200 dark:border-[#222f49] bg-slate-50 dark:bg-[#161d2b] p-4 font-mono text-sm">
+                                <pre class="text-slate-800 dark:text-slate-300">{
+  <span class="code-syntax-property">"id"</span>: <span class="code-syntax-string">"sc_9f823jks"</span>,
+  <span class="code-syntax-property">"url"</span>: <span class="code-syntax-string">"https://example.com"</span>,
+  <span class="code-syntax-property">"screenshot_url"</span>: <span class="code-syntax-string">"https://cdn.screencapr.com/i/abc.png"</span>,
+  <span class="code-syntax-property">"created_at"</span>: <span class="code-syntax-string">"2023-11-10T14:48:00Z"</span>,
+  <span class="code-syntax-property">"status"</span>: <span class="code-syntax-string">"completed"</span>
+}</pre>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- Footer Links -->
+                    <div
+                        class="mt-20 flex items-center justify-between border-t border-slate-200 dark:border-[#222f49] pt-10">
+                        <a class="group flex flex-col items-start gap-1" href="#">
+                            <span class="text-xs font-medium text-slate-400">Previous</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary">←
+                                Authentication</span>
+                        </a>
+                        <a class="group flex flex-col items-end gap-1 text-right" href="#">
+                            <span class="text-xs font-medium text-slate-400">Next</span>
+                            <span
+                                class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary">Retrieve
+                                Screenshot →</span>
+                        </a>
+                    </div>
+                </div>
+            </main>
+            <!-- Code Playground (Right Column) -->
+            <aside
+                class="sticky top-16 hidden h-[calc(100vh-64px)] w-[420px] border-l border-slate-200 dark:border-[#222f49] bg-slate-50 dark:bg-code-dark xl:flex flex-col">
+                <div class="flex flex-col h-full">
+                    <!-- Header Tabs -->
+                    <div
+                        class="flex border-b border-slate-200 dark:border-[#222f49] bg-white dark:bg-sidebar-dark px-4 py-2">
+                        <div class="flex gap-4">
+                            <button
+                                class="px-3 py-1.5 text-xs font-bold text-primary bg-primary/10 rounded-md">cURL</button>
+                            <button
+                                class="px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-800 dark:hover:text-white">Python</button>
+                            <button
+                                class="px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-800 dark:hover:text-white">Node.js</button>
+                        </div>
+                    </div>
+                    <!-- Terminal Content -->
+                    <div class="flex-1 p-6 font-mono text-[13px] leading-relaxed overflow-y-auto">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Request
+                                Example</span>
+                            <button
+                                class="flex items-center gap-1.5 rounded bg-[#222f49] px-2 py-1 text-[11px] font-bold text-white hover:bg-[#314368] transition-all">
+                                <span class="material-symbols-outlined !text-[14px]">content_copy</span>
+                                Copy
+                            </button>
+                        </div>
+                        <div class="text-slate-300 space-y-2">
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">1</span>
+                                <span>curl -X POST https://api.screencapr.com/v1/capture \</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">2</span>
+                                <span> -H <span class="code-syntax-string">"Authorization: Bearer YOUR_API_KEY"</span>
+                                    \</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">3</span>
+                                <span> -H <span class="code-syntax-string">"Content-Type: application/json"</span>
+                                    \</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">4</span>
+                                <span> -d '{</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">5</span>
+                                <span> <span class="code-syntax-property">"url"</span>: <span
+                                        class="code-syntax-string">"https://screencapr.com"</span>,</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">6</span>
+                                <span> <span class="code-syntax-property">"viewport"</span>: <span
+                                        class="code-syntax-string">"1280x800"</span>,</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">7</span>
+                                <span> <span class="code-syntax-property">"full_page"</span>: <span
+                                        class="code-syntax-keyword">true</span></span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="text-slate-500">8</span>
+                                <span> }'</span>
+                            </div>
+                        </div>
+                        <div class="mt-10 border-t border-[#222f49] pt-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Live
+                                    Preview</span>
+                                <span class="flex items-center gap-1 text-[11px] font-medium text-emerald-400">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Connected
+                                </span>
+                            </div>
+                            <div
+                                class="relative overflow-hidden rounded-lg border border-[#222f49] bg-black aspect-video group">
+                                <img class="h-full w-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                                    data-alt="Technical browser window showing a website preview"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR4sRLOAVLE6Q_jWvknODw-1JH-DE_4dZZJg7ZB7t0itA5o7tygg9ae1wsajBHQCjm6ilsaqC1N_SXu4m_3uTVuhwmoYFaaq4GT93kG5yBgYjhHvus3ismL5o_w7OmegVedaZsY88T5Zpq__ipLJPxMINT-D4b-uZef6m0ptIDlL3zTO8DSmucU6X5aX5R_rCy71xwyX83YyYxAFrH-aK8zJ2koQ7DybXklfxVXW-E_rkLpGC7qTGgmWbxuQbxWHXunH_DwzkYi4LN" />
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button
+                                        class="rounded-full bg-primary p-3 text-white shadow-xl transform scale-100 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined !text-[24px]">play_arrow</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="mt-3 text-center text-[10px] text-[#90a4cb]">Run the request above to see a live
+                                capture.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+
+</html>

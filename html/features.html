@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ScreenCapr Features Bento Grid</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06bcf9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0a0a0a",
+                        "card-dark": "#111111",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Top Navigation -->
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 lg:px-40">
+            <div class="flex items-center gap-3">
+                <div class="size-8 text-primary">
+                    <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-bold tracking-tight">ScreenCapr</h2>
+            </div>
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+                <a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#">Features</a>
+                <a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#">API Docs</a>
+                <a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#">Pricing</a>
+                <a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#">Showcase</a>
+            </nav>
+            <div class="flex gap-3">
+                <button
+                    class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold transition-all hover:opacity-90">
+                    Get Started
+                </button>
+                <button
+                    class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-white/5 border border-white/10 text-white text-sm font-bold hover:bg-white/10 transition-all">
+                    Log In
+                </button>
+            </div>
+        </header>
+        <main class="flex flex-col items-center py-12 px-6 lg:px-40">
+            <!-- Page Heading -->
+            <div class="max-w-[960px] w-full mb-12 text-center lg:text-left">
+                <h1 class="text-white text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em] mb-4">
+                    Powerful Features for <span class="text-primary">Modern Teams</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-2xl">
+                    The developer-first screenshot API for capturing everything on the web at scale. Fast, reliable, and
+                    stunningly clear.
+                </p>
+            </div>
+            <!-- Bento Grid Section -->
+            <div class="max-w-[1100px] w-full grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Box 1: Long Scrolling Mobile (Vertical Rectangle) -->
+                <div
+                    class="md:col-span-4 md:row-span-2 glass-card rounded-xl p-8 flex flex-col justify-between overflow-hidden relative group">
+                    <div class="z-10">
+                        <h3 class="text-xl font-bold mb-2">Capture the whole story</h3>
+                        <p class="text-gray-400 text-sm">Automated mobile viewport capture with long-scrolling support.
+                        </p>
+                    </div>
+                    <div
+                        class="mt-8 relative h-[400px] w-full flex justify-center translate-y-4 group-hover:translate-y-2 transition-transform duration-500">
+                        <!-- Mockup Frame -->
+                        <div
+                            class="w-48 h-full bg-[#050505] rounded-[3rem] border-[6px] border-[#222] relative overflow-hidden ring-1 ring-white/10">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#222] rounded-b-xl z-20">
+                            </div>
+                            <div
+                                class="w-full h-[800px] bg-gradient-to-b from-primary/20 via-background-dark to-primary/10 p-2 pt-8">
+                                <div
+                                    class="w-full h-full rounded-xl bg-white/5 border border-white/10 flex flex-col gap-2 p-3">
+                                    <div class="w-full h-4 bg-white/10 rounded"></div>
+                                    <div class="w-2/3 h-4 bg-white/10 rounded"></div>
+                                    <div class="w-full h-32 bg-primary/20 rounded-lg"></div>
+                                    <div class="w-full h-4 bg-white/10 rounded"></div>
+                                    <div class="w-full h-4 bg-white/10 rounded"></div>
+                                    <div class="w-full h-4 bg-white/10 rounded"></div>
+                                    <div class="w-full h-32 bg-white/10 rounded-lg"></div>
+                                    <div class="w-full h-4 bg-white/10 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Box 2: API Terminal (Square) -->
+                <div class="md:col-span-8 md:row-span-1 glass-card rounded-xl p-6 flex flex-col gap-4 overflow-hidden">
+                    <div class="flex justify-between items-center">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-xl font-bold">Lightning Fast API</h3>
+                            <p class="text-gray-400 text-sm">Low latency endpoints with instant processing.</p>
+                        </div>
+                        <div
+                            class="hidden sm:flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            <span class="text-primary text-xs font-bold uppercase tracking-wider">200 OK</span>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-black/40 rounded-lg border border-white/5 p-4 font-mono text-sm leading-relaxed relative">
+                        <div class="flex gap-1.5 mb-3">
+                            <div class="terminal-dot bg-red-500/50"></div>
+                            <div class="terminal-dot bg-yellow-500/50"></div>
+                            <div class="terminal-dot bg-green-500/50"></div>
+                        </div>
+                        <div class="text-gray-300">
+                            <span class="text-primary">curl</span> -X POST "https://api.screencapr.io/v1/capture" \
+                        </div>
+                        <div class="text-gray-500">
+                              -H "Authorization: Bearer <span class="text-gray-400">sk_live_...</span>" \
+                        </div>
+                        <div class="text-gray-300">
+                              -d "url=https://github.com"
+                        </div>
+                        <div class="mt-2 text-green-400/80">
+                            { "status": "success", "url": "https://cdn.screencapr.io/..." }<span
+                                class="animate-pulse bg-primary/60 inline-block w-2 h-4 ml-1 align-middle"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Box 3: Core Features Icons (Horizontal wide) -->
+                <div class="md:col-span-8 md:row-span-1 glass-card rounded-xl p-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <!-- Feature Item -->
+                        <div class="flex flex-col gap-3 group">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all duration-300">
+                                <span class="material-symbols-outlined">fullscreen</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Full Page Capture</h4>
+                                <p class="text-gray-400 text-xs">Capture every pixel from top to bottom automatically.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Feature Item -->
+                        <div class="flex flex-col gap-3 group">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all duration-300">
+                                <span class="material-symbols-outlined">picture_as_pdf</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">PDF Export</h4>
+                                <p class="text-gray-400 text-xs">High-fidelity documents with selectable text and links.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Feature Item -->
+                        <div class="flex flex-col gap-3 group">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all duration-300">
+                                <span class="material-symbols-outlined">hd</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Retina Quality</h4>
+                                <p class="text-gray-400 text-xs">Crystal clear 2x resolution for high-DPI displays.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Showcase / Mini Gallery -->
+            <div class="max-w-[1100px] w-full mt-12">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold">Trusted by top agencies</h3>
+                    <a class="text-primary text-sm font-bold flex items-center gap-1 hover:underline" href="#">
+                        View Showcase <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div
+                        class="aspect-[4/3] rounded-lg bg-white/5 border border-white/10 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Screenshot of a modern web interface dashboard"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRl8Ev_cPA78HCdahKV-0K3GwURKVXYXLWc-fxtbPNHCBb0FhuFnv5fwy3lK42iVehEQbNuuMx-eIV24rja9HhrOH-OHRbHG3tSaIYihlmp8iE9a_ah7tggfPUpasXr6xH1f8Ev5kGXoO5n3pLOjaT9YviotIWI6Tdg_5iP93zEUr4TDRpxrk7ki0nsnAye2cyJPhu7YVPs15i3w1QkM4BH3-36pDTFGur9Pga4lKg0zgK1EmwhQzxJVMGqsHh10azDExg3LwcF5vf");'>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent p-3 flex items-end">
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Dashboard UI</p>
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-[4/3] rounded-lg bg-white/5 border border-white/10 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Screenshot of a creative agency portfolio"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDARD9SM7uSZtO-7jD6tfOZU34PNB8M9cXYui85juYRpDUDFDz43o-_9n9rDl7WNk4ckQu2DjiXKgowh_fnerM6WmSD28Y4IgCXsFsWVd28Eqhw4juv7-BODrfwPd5mNu1rtGyYlWaJ_KZhRbQhdNZCiKlLvehah2F1Kl9eoXk9cOIZa3bW4T4Lg2hSEg97DUvV6aLFJ0Zizm-SaECTLAV8-b5aTYWm8rbEiszjmCpNgofWGcct7IZDnr4bMaQNI5CSDxOWfbL-b0w7");'>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent p-3 flex items-end">
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Creative Agency</p>
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-[4/3] rounded-lg bg-white/5 border border-white/10 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Screenshot of an e-commerce product page"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBmI0Q-Wp9uWh8V6UyRl6lhEWpf6ilG5QbjvUnS5lExe67DtJyh_x3dv_GBJauDPSl2pqQ3hSUDCR8p5SAH8fp9zLbMZqyvBrf_JWck8KquvO4xicGhneXefgy2SW8W3DgJ-Eoe03gfmtQyG4uhBc7sRR-J7zU0ayO214TodMF_ZK4wJY7Lwx7DgE0S6szX8aum_3-vtugnYgF_1o2AWQcjZx2KGMLCezXSZ7rL0cXmkx5XIsaveNsSvk--_zp4oKcFCVvH1FPirTD");'>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent p-3 flex items-end">
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">E-commerce</p>
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-[4/3] rounded-lg bg-white/5 border border-white/10 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Screenshot of a crypto currency trading platform"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdmdPMbH47DwaU8ATWrZmXv-quiXZ4B10KpwlSBzyrhPlSxW5J1AR2jKTYea3Yn9_uunuJ3IWHI-Wh0iuivyuVfe8S_fdr_gtrbepjYrbHUBmz_aAvhc5KP9UB1HzzcaOBJpyCPveT2-q2SyFCVOl777nJ7wb3gVoZ9PGpWI2XvY8lMy1PoG1Ga-y_P010H83DCm1adxlEIAR1LF4B9LCtEPIzB2yOaN2ikF_UGwgnt-dzF91yqO3sVKzAGWqZ119YbbreRn9oFD92");'>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent p-3 flex items-end">
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Web3 / Crypto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CTA Section -->
+            <div class="max-w-[960px] w-full mt-24 text-center">
+                <div class="p-12 rounded-2xl glass-card relative overflow-hidden">
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+                    <h2 class="text-3xl font-bold mb-6">Ready to start capturing?</h2>
+                    <p class="text-gray-400 mb-10 max-w-xl mx-auto">Join 2,000+ developers building the future of web
+                        archiving and monitoring with ScreenCapr.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:scale-105 transition-transform">Get
+                            Free API Key</button>
+                        <button
+                            class="bg-white/5 border border-white/10 text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-all">Read
+                            Documentation</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="border-t border-white/10 py-10 px-6 lg:px-40 mt-12 bg-black/30">
+            <div class="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="size-6 text-primary">
+                            <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span class="font-bold">ScreenCapr</span>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed">The high-performance screenshot infrastructure for
+                        modern web applications.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-4">Product</h5>
+                    <ul class="text-xs text-gray-500 flex flex-col gap-2">
+                        <li><a class="hover:text-primary transition-colors" href="#">API Features</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-4">Support</h5>
+                    <ul class="text-xs text-gray-500 flex flex-col gap-2">
+                        <li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-4">Social</h5>
+                    <ul class="text-xs text-gray-500 flex flex-col gap-2">
+                        <li><a class="hover:text-primary transition-colors" href="#">Twitter (X)</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">GitHub</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 text-center text-[10px] text-gray-600">
+                © 2024 ScreenCapr Inc. All rights reserved. Built with precision for developers.
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

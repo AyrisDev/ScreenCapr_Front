@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Main sections
+Allow: /features
+Allow: /pricing
+Allow: /api-docs
+Allow: /screenshot
+Allow: /contact
+
+# Sitemap
+Sitemap: https://screencapr.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
