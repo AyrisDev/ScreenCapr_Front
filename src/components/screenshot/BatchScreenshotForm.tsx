@@ -54,7 +54,7 @@ export function BatchScreenshotForm() {
 
   const onSubmit = (data: BatchFormData) => {
     setSuccessMessage(null)
-    const { urlList, ...options } = data
+    const { urlList, width, height, ...restOptions } = data
 
     // Parse URLs
     const urls = urlList
@@ -83,6 +83,17 @@ export function BatchScreenshotForm() {
     if (validUrls.length > 10) {
       form.setError("urlList", { message: "Maximum 10 URLs allowed per batch." })
       return
+    }
+
+    // Create options with viewport object for proper device emulation
+    const options = {
+      ...restOptions,
+      width,
+      height,
+      viewport: {
+        width,
+        height,
+      },
     }
 
     batchMutation.mutate({ urls: validUrls, options })

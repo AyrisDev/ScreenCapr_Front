@@ -46,7 +46,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600">
-        <p>© 2024 ScreenCapr Inc. All rights reserved. Built with precision for developers.</p>
+        <p>© 2026 ScreenCapr Inc. All rights reserved. Built with precision for developers.</p>
         <Link
           href="https://ayris.tech"
           target="_blank"

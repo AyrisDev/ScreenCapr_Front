@@ -46,7 +46,20 @@ export function ScreenshotForm() {
 
   const onSubmit = (data: ScreenshotFormData) => {
     setSuccessMessage(null)
-    const { url, ...options } = data
+    const { url, width, height, ...restOptions } = data
+
+    // Create options with viewport object for proper device emulation
+    const options = {
+      ...restOptions,
+      width,
+      height,
+      viewport: {
+        width,
+        height,
+      },
+    }
+
+    console.log('📸 Screenshot Request:', { url, options })
     screenshot.mutate({ url, options })
   }
 

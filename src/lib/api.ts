@@ -24,6 +24,7 @@ apiClient.interceptors.response.use(
 );
 
 export const downloadScreenshot = async (url: string, options?: ScreenshotOptions): Promise<Blob> => {
+  console.log('🌐 API Request:', { url, options });
   const response = await apiClient.post('/api/screenshot',
     { url, options },
     {

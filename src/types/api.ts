@@ -5,6 +5,10 @@ export interface ScreenshotOptions {
   format?: 'png' | 'jpeg';
   quality?: number;
   timeout?: number;
+  viewport?: {
+    width: number;
+    height: number;
+  };
 }
 
 export interface ScreenshotRequest {
