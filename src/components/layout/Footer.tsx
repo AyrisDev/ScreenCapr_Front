@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Camera } from "lucide-react"
+import { Camera, ExternalLink } from "lucide-react"
 
 export function Footer() {
   return (
@@ -45,8 +45,20 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 text-center text-xs text-slate-600">
-        © 2024 ScreenCapr Inc. All rights reserved. Built with precision for developers.
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+        <p>© 2024 ScreenCapr Inc. All rights reserved. Built with precision for developers.</p>
+        <Link
+          href="https://ayris.tech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-1.5 text-slate-500 hover:text-primary transition-all duration-300"
+        >
+          <span className="font-medium">Created by</span>
+          <span className="font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent group-hover:from-purple-500 group-hover:to-primary transition-all duration-300">
+            ayristech
+          </span>
+          <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+        </Link>
       </div>
     </footer>
   )
