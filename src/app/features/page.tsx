@@ -78,16 +78,16 @@ export default function FeaturesPage() {
                             </div>
                             <div className="space-y-1">
                                 <div className="text-slate-300">
-                                    <span className="text-primary">curl</span> -X POST "https://api.screencapr.com/api/screenshot" \
+                                    <span className="text-primary">curl</span> -X POST {"\""}https://api.screencapr.com/api/screenshot{"\""} \
                                 </div>
                                 <div className="text-slate-500 pl-4">
-                                    -H "Content-Type: application/json" \
+                                    -H {"\""}Content-Type: application/json{"\""} \
                                 </div>
                                 <div className="text-slate-300 pl-4">
-                                    -d '{"{"}"url": "https://github.com"{"}"}' --output screenshot.png
+                                    -d &apos;{"{"}&quot;url&quot;: &quot;https://github.com&quot;{"}"}&apos; --output screenshot.png
                                 </div>
                                 <div className="mt-4 text-emerald-400/90 bg-emerald-400/5 p-2 rounded border border-emerald-400/10">
-                                    // Binary PNG Stream Recieved (200 OK)
+                                    {"// Binary PNG Stream Recieved (200 OK)"}
                                     <span className="animate-pulse bg-primary/60 inline-block w-2 h-4 ml-2 align-middle"></span>
                                 </div>
                             </div>

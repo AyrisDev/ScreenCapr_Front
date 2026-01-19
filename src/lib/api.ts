@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { API_BASE_URL } from './constants';
-import type { ScreenshotRequest, BatchScreenshotRequest, HealthResponse, ApiError, ScreenshotOptions } from '@/types/api';
+import type { HealthResponse, ApiError, ScreenshotOptions } from '@/types/api';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -13,7 +13,7 @@ const apiClient = axios.create({
 // Response interceptor for error handling
 apiClient.interceptors.response.use(
   (response) => response,
-  (error: AxiosError) => {
+  (error: AxiosError<{ message?: string }>) => {
     const apiError: ApiError = {
       message: error.response?.data?.message || error.message || 'An unexpected error occurred',
       status: error.response?.status || 500,
@@ -24,9 +24,9 @@ apiClient.interceptors.response.use(
 );
 
 export const downloadScreenshot = async (url: string, options?: ScreenshotOptions): Promise<Blob> => {
-  const response = await apiClient.post('/api/screenshot', 
+  const response = await apiClient.post('/api/screenshot',
     { url, options },
-    { 
+    {
       responseType: 'blob',
       timeout: (options?.timeout || 30000) + 10000 // Add 10s buffer
     }
@@ -37,7 +37,7 @@ export const downloadScreenshot = async (url: string, options?: ScreenshotOption
 export const downloadBatchScreenshots = async (urls: string[], options?: ScreenshotOptions): Promise<Blob> => {
   const response = await apiClient.post('/api/batch-screenshots',
     { urls, options },
-    { 
+    {
       responseType: 'blob',
       timeout: ((options?.timeout || 30000) * urls.length) + 30000 // Timeout per URL + buffer
     }

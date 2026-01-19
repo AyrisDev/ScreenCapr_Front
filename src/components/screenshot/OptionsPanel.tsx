@@ -8,7 +8,6 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
-import { Switch } from "@/components/ui/switch"
 import { VIEWPORT_PRESETS } from "@/lib/constants"
 import type { ScreenshotFormData } from "@/lib/validations"
 
@@ -186,8 +185,8 @@ export function OptionsPanel({ form, isExpanded = false }: OptionsPanelProps) {
                     type="button"
                     onClick={() => field.onChange(false)}
                     className={`flex items-center justify-center gap-2 h-11 rounded-xl border transition-all text-[11px] font-bold ${!field.value
-                        ? "bg-primary/20 border-primary text-white shadow-lg shadow-primary/10"
-                        : "bg-surface-dark border-white/5 text-slate-500 hover:border-white/20"
+                      ? "bg-primary/20 border-primary text-white shadow-lg shadow-primary/10"
+                      : "bg-surface-dark border-white/5 text-slate-500 hover:border-white/20"
                       }`}
                   >
                     <Monitor className="w-3.5 h-3.5" />
@@ -197,8 +196,8 @@ export function OptionsPanel({ form, isExpanded = false }: OptionsPanelProps) {
                     type="button"
                     onClick={() => field.onChange(true)}
                     className={`flex items-center justify-center gap-2 h-11 rounded-xl border transition-all text-[11px] font-bold ${field.value
-                        ? "bg-primary/20 border-primary text-white shadow-lg shadow-primary/10"
-                        : "bg-surface-dark border-white/5 text-slate-500 hover:border-white/20"
+                      ? "bg-primary/20 border-primary text-white shadow-lg shadow-primary/10"
+                      : "bg-surface-dark border-white/5 text-slate-500 hover:border-white/20"
                       }`}
                   >
                     <Maximize2 className="w-3.5 h-3.5" />

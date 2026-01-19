@@ -1,9 +1,9 @@
 import { Metadata } from "next"
 import {
-  Camera, Search, Home, Lock, Zap,
-  Code2, RefreshCw, AlertTriangle,
-  ChevronRight, ChevronDown, Copy,
-  Play, Github, Share2, Activity,
+  Camera, Home, Zap,
+  AlertTriangle,
+  Copy,
+  Activity,
   Layers, Download
 } from "lucide-react"
 import Link from "next/link"
@@ -249,7 +249,7 @@ export default function ApiDocsPage() {
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">02</span>
-                  <span className="pl-4">-H <span className="text-green-400">"Content-Type: application/json"</span> \</span>
+                  <span className="pl-4">-H <span className="text-green-400">{"\""}Content-Type: application/json{"\""}</span> \</span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">03</span>
@@ -257,19 +257,19 @@ export default function ApiDocsPage() {
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">04</span>
-                  <span className="pl-10">"url": <span className="text-green-400">"https://google.com"</span>,</span>
+                  <span className="pl-10">{"\""}url{"\""}: <span className="text-green-400">{"\""}https://google.com{"\""}</span>,</span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">05</span>
-                  <span className="pl-10">"options": <span className="text-orange-400">{"{"}</span></span>
+                  <span className="pl-10">{"\""}options{"\""}: <span className="text-orange-400">{"{"}</span></span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">06</span>
-                  <span className="pl-16">"width": <span className="text-primary italic">1920</span>,</span>
+                  <span className="pl-16">{"\""}width{"\""}: <span className="text-primary italic">1920</span>,</span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">07</span>
-                  <span className="pl-16">"fullPage": <span className="text-primary italic">true</span></span>
+                  <span className="pl-16">{"\""}fullPage{"\""}: <span className="text-primary italic">true</span></span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-700 select-none">08</span>

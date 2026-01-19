@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                     <section className="space-y-6">
                         <h2 className="text-2xl font-black text-white">1. Introduction</h2>
                         <p className="text-slate-400 leading-relaxed text-lg">
-                            At ScreenCapr ("we," "our," or "us"), we prioritize your privacy. This Privacy Policy explains how we collect,
+                            At ScreenCapr ({`"we," "our," or "us"`}), we prioritize your privacy. This Privacy Policy explains how we collect,
                             use, and protect your information when you use our screenshot API and related services. By using our service,
                             you agree to the terms outlined in this policy.
                         </p>

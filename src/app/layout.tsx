@@ -1,6 +1,6 @@
-// Fix for Node v25 providing a broken global localStorage
-if (typeof globalThis !== 'undefined' && !globalThis.localStorage?.getItem && (globalThis as any).localStorage) {
-  delete (globalThis as any).localStorage;
+// Fix for Node v22+ providing a broken global localStorage
+if (typeof globalThis !== 'undefined' && !globalThis.localStorage?.getItem && (globalThis as unknown as { localStorage: unknown }).localStorage) {
+  delete (globalThis as unknown as { localStorage?: unknown }).localStorage;
 }
 
 import type { Metadata } from "next";

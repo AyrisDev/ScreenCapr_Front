@@ -134,7 +134,7 @@ export default function PricingPage() {
                     <p className="text-slate-400 mb-8 max-w-lg mx-auto">
                         Need more than 10M screenshots? Our platform is designed for enterprise scale.
                         <Link href="#" className="text-primary font-bold hover:underline inline-flex items-center ml-2">
-                            Let's talk <ArrowRight className="w-4 h-4 ml-1" />
+                            Let&apos;s talk <ArrowRight className="w-4 h-4 ml-1" />
                         </Link>
                     </p>
                 </div>

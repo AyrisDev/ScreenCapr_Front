@@ -8,7 +8,7 @@ import { z } from "zod"
 
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormMessage, FormDescription } from "@/components/ui/form"
 import { Textarea } from "@/components/ui/textarea"
 import { Progress } from "@/components/ui/progress"
 import { useBatchScreenshot } from "@/hooks/useScreenshot"
@@ -28,6 +28,7 @@ export function BatchScreenshotForm() {
   const [successMessage, setSuccessMessage] = React.useState<string | null>(null)
 
   const form = useForm<BatchFormData>({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(batchFormSchema) as any,
     defaultValues: {
       urlList: "",
@@ -182,6 +183,7 @@ export function BatchScreenshotForm() {
 
             <div className={`mt-8 ${isOptionsExpanded ? "block" : "hidden"}`}>
               <OptionsPanel
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 form={form as any}
                 isExpanded={true}
               />

@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { Mail, MessageSquare, Globe, ArrowRight, ShieldCheck, Zap } from "lucide-react"
+import { Mail, MessageSquare, ArrowRight, ShieldCheck, Zap } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function ContactPage() {
                 <div className="space-y-12">
                     <div className="space-y-6">
                         <h1 className="text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
-                            Let's build <br />
+                            Let&apos;s build <br />
                             <span className="text-primary italic">something special.</span>
                         </h1>
                         <p className="text-slate-400 text-xl leading-relaxed max-w-lg">
@@ -42,7 +42,7 @@ export default function ContactPage() {
                             </div>
                             <h4 className="text-white font-bold">Live Chat</h4>
                             <p className="text-sm text-slate-500">Available 9am - 6pm EST.</p>
-                            <button className="text-purple-400 font-bold hover:underline block">Open Messenger</button>
+                            <span className="text-purple-400 font-bold hover:underline block cursor-pointer">Open Messenger</span>
                         </div>
                     </div>
 

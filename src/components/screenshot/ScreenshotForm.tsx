@@ -7,7 +7,7 @@ import { Camera, Download, Loader2, Link, AlertCircle, CheckCircle2 } from "luci
 
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 import { useScreenshot } from "@/hooks/useScreenshot"
@@ -20,6 +20,7 @@ export function ScreenshotForm() {
   const [successMessage, setSuccessMessage] = React.useState<string | null>(null)
 
   const form = useForm<ScreenshotFormData>({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(screenshotFormSchema) as any,
     defaultValues: {
       url: "",

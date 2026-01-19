@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Camera, Home, ArrowLeft } from "lucide-react"
 
@@ -21,7 +23,7 @@ export default function NotFound() {
                 <div className="space-y-4">
                     <h1 className="text-6xl font-black text-white tracking-tighter">Page <span className="text-primary italic">Not Captured.</span></h1>
                     <p className="text-slate-500 text-lg max-w-md mx-auto">
-                        The page you're looking for doesn't exist or has been moved to another dimension.
+                        The page you&apos;re looking for doesn&apos;t exist or has been moved to another dimension.
                     </p>
                 </div>
 

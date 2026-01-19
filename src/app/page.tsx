@@ -1,6 +1,6 @@
 import { ScreenshotForm } from "@/components/screenshot/ScreenshotForm"
 import { Metadata } from "next"
-import { Monitor, Smartphone, Tablet, CheckCircle, ArrowRight, Zap, Check, Link as LinkIcon } from "lucide-react"
+import { Monitor, Smartphone, CheckCircle, ArrowRight, Zap, Check, Link as LinkIcon } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -99,17 +99,17 @@ export default function Home() {
               </div>
               <pre className="font-mono text-sm leading-relaxed text-slate-300">
                 <span className="text-purple-400">{"{"}</span>{"\n"}
-                {"  "}<span className="text-primary">"status"</span>: <span className="text-green-400">"success"</span>,{"\n"}
-                {"  "}<span className="text-primary">"data"</span>: <span className="text-purple-400">{"{"}</span>{"\n"}
-                {"    "}<span className="text-primary">"request_id"</span>: <span className="text-yellow-200">"sc_9f21a8b3"</span>,{"\n"}
-                {"    "}<span className="text-primary">"url"</span>: <span className="text-yellow-200">"https://screencapr.com"</span>,{"\n"}
-                {"    "}<span className="text-primary">"format"</span>: <span className="text-yellow-200">"png"</span>,{"\n"}
-                {"    "}<span className="text-primary">"viewport"</span>: <span className="text-purple-400">{"{"}</span>{"\n"}
-                {"      "}<span className="text-primary">"width"</span>: <span className="text-orange-400">1920</span>,{"\n"}
-                {"      "}<span className="text-primary">"height"</span>: <span className="text-orange-400">1080</span>{"\n"}
+                {"  "}<span className="text-primary">{`"status"`}</span>: <span className="text-green-400">{`"success"`}</span>,{"\n"}
+                {"  "}<span className="text-primary">{`"data"`}</span>: <span className="text-purple-400">{"{"}</span>{"\n"}
+                {"    "}<span className="text-primary">{`"request_id"`}</span>: <span className="text-yellow-200">{`"sc_9f21a8b3"`}</span>,{"\n"}
+                {"    "}<span className="text-primary">{`"url"`}</span>: <span className="text-yellow-200">{`"https://screencapr.com"`}</span>,{"\n"}
+                {"    "}<span className="text-primary">{`"format"`}</span>: <span className="text-yellow-200">{`"png"`}</span>,{"\n"}
+                {"    "}<span className="text-primary">{`"viewport"`}</span>: <span className="text-purple-400">{"{"}</span>{"\n"}
+                {"      "}<span className="text-primary">{`"width"`}</span>: <span className="text-orange-400">1920</span>,{"\n"}
+                {"      "}<span className="text-primary">{`"height"`}</span>: <span className="text-orange-400">1080</span>{"\n"}
                 {"    "}<span className="text-purple-400">{"}"}</span>,{"\n"}
-                {"    "}<span className="text-primary">"cdn_url"</span>: <span className="text-green-400">"https://cdn.sc.io/res_82...png"</span>,{"\n"}
-                {"    "}<span className="text-primary">"latency"</span>: <span className="text-orange-400">452</span>{"\n"}
+                {"    "}<span className="text-primary">{`"cdn_url"`}</span>: <span className="text-green-400">{`"https://cdn.sc.io/res_82...png"`}</span>,{"\n"}
+                {"    "}<span className="text-primary">{`"latency"`}</span>: <span className="text-orange-400">452</span>{"\n"}
                 {"  "}<span className="text-purple-400">{"}"}</span>{"\n"}
                 <span className="text-purple-400">{"}"}</span>
               </pre>
