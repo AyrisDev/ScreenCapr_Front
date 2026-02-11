@@ -4,6 +4,7 @@ if (typeof globalThis !== 'undefined' && !globalThis.localStorage?.getItem && (g
 }
 
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { QueryProvider } from "@/components/query-provider";
@@ -63,6 +64,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <Script
+          defer
+          src="https://insight.ayris.tech/script.js"
+          data-website-id="d6389279-4cb2-4b80-97d1-96676033afc5"
+          strategy="afterInteractive"
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
