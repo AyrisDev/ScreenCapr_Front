@@ -11,6 +11,8 @@ import { QueryProvider } from "@/components/query-provider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { APP_CONFIG } from "@/lib/constants";
+import PlausibleProvider from "next-plausible";
+import RouteTracker from "@/components/RouteTracker";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -64,28 +66,36 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Script
-          defer
-          src="https://insight.ayris.tech/script.js"
-          data-website-id="d6389279-4cb2-4b80-97d1-96676033afc5"
-          strategy="afterInteractive"
-        />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+        <PlausibleProvider 
+          domain="screencapr.com" 
+          customDomain="https://analytics.ayris.tech"
+          selfHosted
         >
-          <QueryProvider>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-1">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </QueryProvider>
-        </ThemeProvider>
+          <RouteTracker />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <QueryProvider>
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-1">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </QueryProvider>
+          </ThemeProvider>
+          {/* Self-hosted plausible script via proxy */}
+          <Script 
+            defer 
+            data-domain="screencapr.com" 
+            src="/pl.js" 
+            strategy="afterInteractive"
+          />
+        </PlausibleProvider>
       </body>
     </html>
   );
